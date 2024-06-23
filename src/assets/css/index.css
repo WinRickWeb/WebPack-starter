@@ -10,7 +10,7 @@
     @apply font-yekanBakh bg-kid-backgroud;
   }
 }
-/*
+
 @layer components {
   .btn{
     @apply px-4 pt-3 pb-2 text-lg font-medium duration-500 cursor-pointer select-none w-fit rounded-xl;
@@ -48,4 +48,4 @@
 
 #trapezoid {
   transform: perspective(20rem) rotateX(-10deg);
-} */
+}
