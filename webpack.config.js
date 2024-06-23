@@ -7,12 +7,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  // entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    main: './src/assets/js/main.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     clean: true,
     // assetModuleFilename: '[name][ext]',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+    },
   },
   devServer: {
     static: {
@@ -43,7 +52,7 @@ module.exports = {
       showErrors: true,
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'index.css',
     }),
     new CleanWebpackPlugin(),
     new webpack.ProvidePlugin({
@@ -111,7 +120,7 @@ module.exports = {
       //     emit: false
       //   },
       // },
-      
+
     ],
   },
 };
