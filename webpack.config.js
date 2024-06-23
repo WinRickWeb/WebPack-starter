@@ -54,6 +54,7 @@ module.exports = {
   ],
   module: {
     rules: [
+      // css
       {
         test: /\.css$/i,
         use: [
@@ -62,6 +63,7 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      // scss
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -70,6 +72,46 @@ module.exports = {
           "sass-loader",
         ],
       },
+      // font
+      {
+        test: /\.woff$|\.woff2?$|\.ttf$|\.eot$|\.otf$/,
+        loader: 'file-loader',
+        type: "asset/resource",
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'assets/fonts/',
+          publicPath: '../fonts',
+          emit: false,
+        },
+        generator: {
+          filename: "[name][ext][query]",
+          outputPath: 'assets/fonts/',
+          publicPath: './assets/fonts/',
+          emit: false
+        },
+      },
+      // image & icon
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: '[name].[ext]',
+      //         outputPath: 'assets/images',
+      //         publicPath: './assets/images/',
+      //         emit: false
+      //       }
+      //     }
+      //   ],
+      //   generator: {
+      //     filename: "[name][ext][query]",
+      //     outputPath: 'assets/images/',
+      //     publicPath: './assets/images/',
+      //     emit: false
+      //   },
+      // },
+      
     ],
   },
 };
