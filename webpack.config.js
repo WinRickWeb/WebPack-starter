@@ -99,28 +99,35 @@ module.exports = {
           emit: false
         },
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+        options: {
+          minimize: false,
+          // attrs: ['img:src', 'link:href']
+        }
+      },
       // image & icon
-      // {
-      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         name: '[name].[ext]',
-      //         outputPath: 'assets/images',
-      //         publicPath: './assets/images/',
-      //         emit: false
-      //       }
-      //     }
-      //   ],
-      //   generator: {
-      //     filename: "[name][ext][query]",
-      //     outputPath: 'assets/images/',
-      //     publicPath: './assets/images/',
-      //     emit: false
-      //   },
-      // },
-
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images',
+              publicPath: './assets/images/',
+              emit: false
+            }
+          }
+        ],
+        generator: {
+          filename: "[name][ext][query]",
+          outputPath: 'assets/images/',
+          publicPath: './assets/images/',
+          emit: false
+        },
+      },
     ],
   },
 };
